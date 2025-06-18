@@ -10,7 +10,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <div className="flex min-h-screen bg-black text-gray-200 font-sans">
         {/* Sidebar */}
         <aside
-          className={`transition-all duration-200 bg-black border-r border-gray-800 shadow-lg h-screen flex flex-col ${
+          className={`transition-all duration-300 ease-in-out bg-black border-r border-gray-800 shadow-lg h-screen flex flex-col ${
             expanded ? "w-64" : "w-20"
           }`}
         >
@@ -30,13 +30,25 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
               variant="ghost"
               color="secondary"
               radius="full"
-              onPress={() => setExpanded((e) => !e)}
+              onPress={() => setExpanded(!expanded)}
               aria-label={expanded ? "Collapse sidebar" : "Expand sidebar"}
               className="text-gray-400 hover:text-white"
             >
               <span className="material-symbols-outlined text-2xl">
                 {expanded ? "chevron_left" : "chevron_right"}
               </span>
+            </Button>
+          </div>
+          {/* Collapse Button */}
+          <div className="flex justify-center mt-4">
+            <Button
+              variant="ghost"
+              color="secondary"
+              radius="full"
+              onPress={() => setExpanded(!expanded)}
+              className="text-gray-400 hover:text-white"
+            >
+              {expanded ? "Collapse" : "Expand"}
             </Button>
           </div>
           {/* Navigation */}
@@ -47,7 +59,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">dashboard</span>
+                  <span className="material-symbols-outlined flex-shrink-0">dashboard</span>
                   {expanded && <span>Dashboard</span>}
                 </Link>
               </li>
@@ -56,7 +68,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/expenses"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">receipt_long</span>
+                  <span className="material-symbols-outlined flex-shrink-0">receipt_long</span>
                   {expanded && <span>Expenses</span>}
                 </Link>
               </li>
@@ -65,7 +77,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/incomes"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">trending_up</span>
+                  <span className="material-symbols-outlined flex-shrink-0">trending_up</span>
                   {expanded && <span>Incomes</span>}
                 </Link>
               </li>
@@ -74,7 +86,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/investments"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">account_balance_wallet</span>
+                  <span className="material-symbols-outlined flex-shrink-0">account_balance_wallet</span>
                   {expanded && <span>Investments</span>}
                 </Link>
               </li>
@@ -83,7 +95,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/savings"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">savings</span>
+                  <span className="material-symbols-outlined flex-shrink-0">savings</span>
                   {expanded && <span>Savings</span>}
                 </Link>
               </li>
@@ -92,7 +104,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/credits"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">credit_card</span>
+                  <span className="material-symbols-outlined flex-shrink-0">credit_card</span>
                   {expanded && <span>Credits</span>}
                 </Link>
               </li>
@@ -101,7 +113,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                   href="/settings"
                   className="flex items-center gap-4 px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors text-gray-200 font-medium"
                 >
-                  <span className="material-symbols-outlined">settings</span>
+                  <span className="material-symbols-outlined flex-shrink-0">settings</span>
                   {expanded && <span>Settings</span>}
                 </Link>
               </li>
